@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/component: dynatrace-database-datasource
+    app.kubernetes.io/name: dynatrace-operator
+    app.kubernetes.io/version: v0.1.32
+  name: dynatrace-database-extensions
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: dynatrace-database-extensions
+subjects:
+- kind: ServiceAccount
+  name: dynatrace-database-extensions-executor
+  namespace: dynatrace
